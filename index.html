@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>일과 인공지능 학회 WAIS — 창립회원 모집</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
+<style>
+  :root{
+    --bg:#EEF1F8;
+    --bg-soft:#F7F8FC;
+    --ink:#14161C;
+    --blue:#2F5CF6;
+    --blue-deep:#1B3AC2;
+    --yellow:#FFDD8A;
+    --cyan:#BEE6F5;
+    --line:rgba(20,22,28,0.14);
+    --line-strong:rgba(20,22,28,0.85);
+    --white:#FFFFFF;
+    --black:#101115;
+    --muted:#54586A;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Pretendard Variable','Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.55;
+  }
+  .mono{font-family:'JetBrains Mono',monospace;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
+  a{color:inherit;}
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    background:rgba(238,241,248,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 28px;max-width:1080px;margin:0 auto;
+  }
+  .brand{
+    display:flex;align-items:center;gap:10px;
+    font-weight:800;font-size:19px;letter-spacing:0.02em;
+  }
+  .brand-logo{height:60px;width:auto;display:block;}
+  .nav-links{display:flex;gap:26px;font-size:14px;font-weight:600;}
+  .nav-links a{opacity:0.75;text-decoration:none;transition:opacity .15s;}
+  .nav-links a:hover{opacity:1;}
+  .cta-mini{
+    background:var(--ink);color:var(--white);
+    padding:10px 18px;border-radius:999px;
+    font-size:14px;font-weight:700;text-decoration:none;
+    white-space:nowrap;
+  }
+  @media(max-width:720px){ .nav-links{display:none;} }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;overflow:hidden;
+    background:linear-gradient(135deg, #E2E9FE 0%, #D9F1F7 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .hero-inner{padding:76px 0 60px;position:relative;}
+  .hero-graph{
+    position:absolute;top:-40px;right:-140px;width:640px;height:640px;
+    opacity:0.55;pointer-events:none;
+  }
+  @media(max-width:900px){ .hero-graph{opacity:0.28;right:-260px;width:520px;height:520px;} }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--yellow);
+    padding:7px 14px;border-radius:999px;
+    font-size:13px;font-weight:700;letter-spacing:0.04em;
+    font-family:'JetBrains Mono',monospace;
+    margin-bottom:28px;
+  }
+  h1.title{
+    font-size:clamp(46px,7.4vw,86px);
+    line-height:0.98;font-weight:800;letter-spacing:-0.02em;
+    margin:0 0 26px;position:relative;z-index:2;
+  }
+  h1.title .line{display:block;}
+  h1.title .box{
+    display:inline-block;background:var(--white);
+    border:3px solid var(--ink);
+    padding:2px 18px 8px;border-radius:6px;
+  }
+  .tagline-bar{
+    display:inline-block;background:var(--blue);color:var(--white);
+    font-weight:700;font-size:clamp(16px,2.4vw,22px);
+    padding:12px 22px;border-radius:8px;margin:6px 0 30px;
+    position:relative;z-index:2;
+  }
+  .hero-desc{
+    max-width:560px;font-size:16.5px;color:var(--muted);
+    margin:0 0 34px;position:relative;z-index:2;
+  }
+  .mark{
+    background:linear-gradient(to top, var(--yellow) 42%, transparent 42%);
+    font-weight:700;color:var(--ink);padding:0 2px;
+  }
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;align-items:center;position:relative;z-index:2;}
+  .btn-primary{
+    background:var(--blue);color:var(--white);
+    padding:16px 30px;border-radius:10px;
+    font-weight:800;font-size:16px;text-decoration:none;
+    border:2px solid var(--blue);
+    transition:transform .12s ease, background .15s;
+    display:inline-block;
+  }
+  .btn-primary:hover{background:var(--blue-deep);transform:translateY(-2px);}
+  .btn-ghost{
+    padding:14px 26px;border-radius:10px;border:2px solid var(--ink);
+    font-weight:700;font-size:15px;text-decoration:none;color:var(--ink);
+    background:transparent;
+  }
+  .countdown{
+    margin-top:26px;font-family:'JetBrains Mono',monospace;font-size:13px;
+    color:var(--muted);display:flex;gap:8px;align-items:center;position:relative;z-index:2;
+  }
+  .countdown b{color:var(--ink);font-weight:700;}
+
+  /* ---------- section shell ---------- */
+  section{padding:44px 0;}
+  #masterclass{padding-bottom:18px;}
+  #weekly{padding-top:18px;padding-bottom:18px;}
+  .section-head{display:flex;align-items:baseline;gap:12px;margin-bottom:34px;}
+  .section-head .bar{width:5px;height:26px;background:var(--ink);border-radius:2px;}
+  .section-head h2{font-size:clamp(26px,3.4vw,34px);font-weight:800;letter-spacing:-0.01em;margin:0;}
+  .section-sub{color:var(--muted);font-size:15px;margin:-22px 0 34px 17px;}
+
+  .intro-text{font-size:18px;line-height:1.85;max-width:720px;}
+  .intro-text .founder-count{
+    background:var(--yellow);padding:2px 8px;border-radius:4px;font-weight:800;
+  }
+
+  /* ---------- two column grid ---------- */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  @media(max-width:760px){ .grid2{grid-template-columns:1fr;} }
+  .card{
+    background:var(--white);border:2px solid var(--ink);
+    border-radius:var(--radius);padding:30px 28px;
+  }
+  .card h3{
+    font-size:19px;font-weight:800;margin:0 0 18px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .card h3::before{content:"|";color:var(--blue);font-weight:900;}
+  .card ul{margin:0;padding:0;list-style:none;}
+  .card li{
+    padding:11px 0;border-bottom:1px solid var(--line);
+    font-size:15px;display:flex;gap:10px;
+  }
+  .card li:last-child{border-bottom:none;}
+  .card li::before{content:"—";color:var(--blue);flex-shrink:0;font-weight:700;}
+  .tag{
+    display:inline-block;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;
+    padding:3px 9px;border-radius:5px;margin-right:8px;
+  }
+  .tag.cyan{background:var(--cyan);}
+  .tag.yellow{background:var(--yellow);}
+
+  /* ---------- masterclass ---------- */
+  .masterclass{background:var(--black);color:var(--white);border-radius:28px;margin:0 28px;padding:56px 44px;}
+  @media(max-width:600px){ .masterclass{padding:40px 22px;margin:0 14px;} }
+  .masterclass .badge{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--blue);color:var(--white);font-weight:800;font-size:13px;
+    padding:8px 16px;border-radius:999px;margin-bottom:22px;font-family:'JetBrains Mono',monospace;
+  }
+  .masterclass h2{font-size:clamp(28px,4vw,40px);font-weight:800;margin:0 0 18px;letter-spacing:-0.01em;}
+  .masterclass p.desc{color:rgba(255,255,255,0.72);font-size:16px;max-width:600px;margin:0 0 36px;}
+  .mc-card{
+    background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.16);
+    border-radius:16px;padding:26px 28px;display:flex;justify-content:space-between;
+    align-items:center;gap:24px;flex-wrap:wrap;
+  }
+  .mc-card .mc-label{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--cyan);margin-bottom:8px;letter-spacing:0.03em;}
+  .mc-card h4{margin:0 0 8px;font-size:21px;font-weight:800;}
+  .mc-card p{margin:0;color:rgba(255,255,255,0.65);font-size:14px;max-width:420px;}
+  .mc-only{
+    font-size:12px;font-family:'JetBrains Mono',monospace;color:var(--yellow);
+    border:1px solid var(--yellow);padding:6px 12px;border-radius:999px;white-space:nowrap;
+  }
+
+  /* ---------- weekly skill program ---------- */
+  .weekly-block{
+    background:linear-gradient(135deg, var(--blue-deep) 0%, #12235E 100%);
+    color:var(--white);border-radius:28px;margin:0 28px;padding:56px 44px;
+  }
+  @media(max-width:600px){ .weekly-block{padding:40px 22px;margin:0 14px;} }
+  .weekly-block .badge{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--cyan);color:var(--ink);font-weight:800;font-size:13px;
+    padding:8px 16px;border-radius:999px;margin-bottom:22px;font-family:'JetBrains Mono',monospace;
+  }
+  .weekly-block h2{font-size:clamp(28px,4vw,40px);font-weight:800;margin:0 0 18px;letter-spacing:-0.01em;}
+  .weekly-block p.desc{color:rgba(255,255,255,0.72);font-size:16px;max-width:600px;margin:0 0 36px;}
+  .weekly-block .mc-label{color:var(--yellow);}
+  .weekly-block .mc-only{color:var(--cyan);border-color:var(--cyan);}
+
+  /* ---------- media ---------- */
+  .media-row{display:grid;grid-template-columns:1.1fr 0.9fr;gap:22px;}
+  @media(max-width:760px){ .media-row{grid-template-columns:1fr;} }
+  .media-video{
+    background:var(--ink);border-radius:var(--radius);aspect-ratio:16/9;
+    display:flex;align-items:center;justify-content:center;color:var(--white);
+    position:relative;overflow:hidden;text-decoration:none;
+  }
+  .media-video::after{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 30% 30%, rgba(47,92,246,0.35), transparent 60%);
+  }
+  .play-btn{
+    width:66px;height:66px;border-radius:50%;background:var(--white);
+    display:flex;align-items:center;justify-content:center;position:relative;z-index:2;
+  }
+  .play-btn::before{
+    content:"";border-left:20px solid var(--ink);border-top:12px solid transparent;
+    border-bottom:12px solid transparent;margin-left:5px;
+  }
+  .media-cap{position:absolute;bottom:20px;left:24px;z-index:2;font-size:14px;font-weight:700;}
+  .channel-card{
+    background:var(--white);border:2px solid var(--ink);border-radius:var(--radius);
+    padding:26px;display:flex;flex-direction:column;justify-content:center;gap:14px;
+  }
+  .channel-card a{
+    font-weight:700;text-decoration:none;color:var(--blue);font-size:15px;
+    display:flex;align-items:center;gap:8px;
+  }
+
+  /* ---------- join steps ---------- */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:30px;}
+  @media(max-width:760px){ .steps{grid-template-columns:1fr;} }
+  .step{background:var(--white);border:2px solid var(--ink);border-radius:16px;padding:26px 22px;}
+  .step .num{
+    font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--blue);
+    font-size:13px;margin-bottom:12px;
+  }
+  .step h4{margin:0 0 8px;font-size:17px;font-weight:800;}
+  .step p{margin:0;font-size:14px;color:var(--muted);}
+
+  .fee-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  @media(max-width:600px){ .fee-grid{grid-template-columns:1fr;} }
+  .fee-card{border:2px solid var(--ink);border-radius:16px;padding:26px;background:var(--white);}
+  .fee-card .amount{font-size:32px;font-weight:800;margin:6px 0 4px;}
+  .fee-card .label{font-size:14px;color:var(--muted);}
+  .perk-card{
+    background:var(--yellow);border:2px solid var(--ink);border-radius:16px;padding:26px;
+    grid-column:1/-1;
+  }
+  .perk-card .label{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;margin-bottom:10px;}
+  .perk-card p{margin:0;font-size:16px;font-weight:700;}
+
+  /* ---------- footer / final cta ---------- */
+  footer{background:var(--black);color:var(--white);margin-top:40px;padding:64px 0 30px;}
+  .final-cta{text-align:center;padding-bottom:56px;border-bottom:1px solid rgba(255,255,255,0.14);margin-bottom:40px;}
+  .final-cta h2{font-size:clamp(30px,5vw,48px);font-weight:800;margin:0 0 20px;letter-spacing:-0.01em;}
+  .final-cta p{color:rgba(255,255,255,0.65);margin:0 0 34px;font-size:16px;}
+  .qr-box{
+    width:132px;height:132px;background:var(--white);border-radius:12px;margin:0 auto 20px;
+    display:flex;align-items:center;justify-content:center;overflow:hidden;
+  }
+  .qr-box img{width:100%;height:100%;object-fit:contain;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;}
+  @media(max-width:700px){ .footer-grid{grid-template-columns:1fr;gap:28px;} }
+  .footer-wais{font-size:40px;font-weight:800;letter-spacing:0.01em;margin-bottom:6px;}
+  .footer-sub{color:rgba(255,255,255,0.5);font-size:13px;font-family:'JetBrains Mono',monospace;letter-spacing:0.06em;}
+  .footer-col h5{font-size:13px;color:rgba(255,255,255,0.5);font-weight:600;margin:0 0 14px;font-family:'JetBrains Mono',monospace;letter-spacing:0.03em;}
+  .footer-col a, .footer-col p{
+    display:block;color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;margin-bottom:10px;
+  }
+  .footer-bottom{
+    margin-top:44px;padding-top:22px;border-top:1px solid rgba(255,255,255,0.14);
+    font-size:12px;color:rgba(255,255,255,0.4);text-align:center;
+  }
+
+  ::selection{background:var(--yellow);}
+  @media (prefers-reduced-motion: reduce){
+    .node, .edge{animation:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand"><img src="logo.png.png" alt="WAIS" class="brand-logo"></div>
+    <div class="nav-links">
+      <a href="#about">학회소개</a>
+      <a href="#weekly">스킬프로그램</a>
+      <a href="#masterclass">마스터클래스</a>
+      <a href="#join">가입안내</a>
+    </div>
+    <a class="cta-mini" href="#join">창립회원 신청</a>
+  </div>
+</div>
+
+<header class="hero">
+  <svg class="hero-graph" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g stroke="#2F5CF6" stroke-width="1.4" opacity="0.55">
+      <line class="edge" x1="120" y1="140" x2="300" y2="90"></line>
+      <line class="edge" x1="300" y1="90" x2="460" y2="150"></line>
+      <line class="edge" x1="120" y1="140" x2="180" y2="300"></line>
+      <line class="edge" x1="300" y1="90" x2="290" y2="260"></line>
+      <line class="edge" x1="460" y1="150" x2="420" y2="310"></line>
+      <line class="edge" x1="180" y1="300" x2="290" y2="260"></line>
+      <line class="edge" x1="290" y1="260" x2="420" y2="310"></line>
+      <line class="edge" x1="180" y1="300" x2="230" y2="440"></line>
+      <line class="edge" x1="290" y1="260" x2="330" y2="450"></line>
+      <line class="edge" x1="420" y1="310" x2="390" y2="470"></line>
+      <line class="edge" x1="230" y1="440" x2="330" y2="450"></line>
+      <line class="edge" x1="330" y1="450" x2="390" y2="470"></line>
+    </g>
+    <g fill="#14161C" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">
+      <circle class="node" cx="120" cy="140" r="5" fill="#2F5CF6"></circle>
+      <text x="132" y="136">Development</text>
+      <circle class="node" cx="300" cy="90" r="6" fill="#14161C"></circle>
+      <text x="312" y="86">SNA</text>
+      <circle class="node" cx="460" cy="150" r="5" fill="#2F5CF6"></circle>
+      <text x="472" y="146">Expertise</text>
+      <circle class="node" cx="180" cy="300" r="4" fill="#14161C"></circle>
+      <text x="192" y="296">Culture</text>
+      <circle class="node" cx="290" cy="260" r="5" fill="#2F5CF6"></circle>
+      <text x="302" y="256">AI</text>
+      <circle class="node" cx="420" cy="310" r="4" fill="#14161C"></circle>
+      <text x="432" y="306">Learning</text>
+      <circle class="node" cx="230" cy="440" r="4" fill="#14161C"></circle>
+      <text x="242" y="436">Data Driven</text>
+      <circle class="node" cx="330" cy="450" r="5" fill="#2F5CF6"></circle>
+      <text x="342" y="446">Skill</text>
+      <circle class="node" cx="390" cy="470" r="4" fill="#14161C"></circle>
+      <text x="402" y="466">Career</text>
+    </g>
+  </svg>
+
+  <div class="hero-inner wrap">
+    <div class="eyebrow mono">손으로 배우는 실천중심 구독학회</div>
+    <h1 class="title">
+      <span class="line box">일과</span>
+      <span class="line box" style="margin-top:8px;">인공지능 학회</span>
+    </h1>
+    <div class="tagline-bar">Build AI Career with your Domain Expertise</div>
+    <p class="hero-desc">
+      <span class="mark">"자신의 일 분야를 AI로 확장하는"</span></br>
+      일과 인공지능 학회(WAIS: Work &amp; AI Society)는 일과 인공지능에 관련된 연구, 실무, 집필,
+      프로젝트, 교육을 함께 만들어가는 구독형 학회입니다. 학회 창립을 맞아
+      <span class="mark">창립회원 35인</span>을 초대합니다.
+    </p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="#join">창립회원 신청하기 →</a>
+      <a class="btn-ghost" href="#about">학회 소개 보기</a>
+    </div>
+    <div class="countdown mono">
+      <span>신청 마감</span><b id="deadline-text">2026.07.17</b>
+      <span>· 남은 시간</span><b id="dday">—</b>
+    </div>
+  </div>
+</header>
+
+<section id="about" class="wrap">
+  <div class="section-head"><span class="bar"></span><h2>학회 소개</h2></div>
+  <p class="intro-text">
+    일과 인공지능과 관련된 연구자, 실무자, 교육자가 모여 산업·직무·세대별 AI 역량을
+    함께 규명하고, 이를 실제 교육과 커리어 설계에 적용하는 것을 목표로 합니다.
+    창립을 맞이하여 <span class="founder-count">창립회원 35인</span>을 초대합니다.
+  </p>
+</section>
+
+<section id="who-and-focus" class="wrap">
+  <div class="grid2">
+    <div class="card">
+      <h3>가입 대상</h3>
+      <ul>
+        <li>일과 인공지능 연구자</li>
+        <li>연구에 인공지능 분석기법을 활용하려는 연구자</li>
+        <li>일에 인공지능을 적용하고자 하는 실무자</li>
+        <li>교육 프로그램 개발(기획)자 및 강사</li>
+        <li>AI와 일의 세계 변화를 준비하고자 하는 대학생</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>2026년 중점 사업</h3>
+      <ul>
+        <li>산업·직무·세대별 AI Competencies (Human-Technology) Ontology</li>
+        <li>일과 인공지능 Skill 100</li>
+        <li>대학생의 AI Career를 위한 프로그램</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="programs" class="wrap">
+  <div class="grid2">
+    <div class="card">
+      <h3>주요 활동</h3>
+      <ul>
+        <li>일과 인공지능 연구, 프로젝트 참가 및 협업</li>
+        <li>프로그램 개발 및 교육</li>
+        <li>네트워킹 데이</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>정기 프로그램</h3>
+      <ul>
+        <li><span class="tag cyan">Weekly</span>AI Skill Program</li>
+        <li><span class="tag cyan">Monthly</span>Master Program</li>
+        <li><span class="tag cyan">Annual</span>Conference</li>
+        <li><span class="tag yellow">Project</span>Hands-On Project</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="masterclass">
+  <div class="masterclass">
+    <span class="badge">FOUNDING MEMBERS ONLY</span>
+    <h2>창립회원 전용 마스터클래스</h2>
+    <p class="desc">
+      정기 Monthly Master Program 중에서도, 창립회원만 참여할 수 있는 첫 세션이 오픈됩니다.
+      이론 강의가 아니라, 실제로 함께 만들어보는 라이브 빌드 방식입니다.
+    </p>
+    <div class="mc-card">
+      <div>
+        <div class="mc-label mono">2026.08 Open 4강</div>
+        <h4>HRD에서의 AI활용, 라이브로 만들기</h4>
+        <p> 개인개발, 경력개발, 이직예측까지 구현하는 실습형 세션.</p>
+        <p> (프롬프트 북, 실습노트 제공)</p>
+      </div>
+      <span class="mc-only">창립회원 무료</span>
+    </div>
+  </div>
+</section>
+
+<section id="weekly">
+  <div class="weekly-block">
+    <span class="badge">WEEKLY AI SKILL PROGRAM</span>
+    <h2>매주 실무로 이어지는 AI Skill Program</h2>
+    <p class="desc">
+      정기 Weekly Skill Program에서는 실제 업무 도구를 처음 다루는 순간부터
+      내 업무 프로세스에 자연스럽게 녹이는 단계까지 함께 다룹니다.
+    </p>
+    <div class="mc-card">
+      <div>
+        <div class="mc-label mono">2026.08 Open. 8강</div>
+        <h4>클로드와 함께 일하기</h4>
+        <p>처음 켜는 법부터 업무에 녹이는 법까지</p>
+      </div>
+      <span class="mc-only">전 회원 참여</span>
+    </div>
+  </div>
+</section>
+
+<!--
+<section id="media" class="wrap">
+  <div class="section-head"><span class="bar"></span><h2>먼저 살펴보기</h2></div>
+  <div class="media-row">
+    <a class="media-video" href="https://www.youtube.com/@HRDxAI" target="_blank" rel="noopener">
+      <div class="play-btn"></div>
+      <div class="media-cap">왜 일과 인공지능인가 — 채널 바로가기</div>
+    </a>
+    <div class="channel-card">
+      <div class="tag yellow" style="width:fit-content;">공식 채널</div>
+      <a href="https://www.youtube.com/@HRDxAI" target="_blank" rel="noopener">youtube.com/@HRDxAI ↗</a>
+      <a href="http://pf.kakao.com/_SxgxlwX" target="_blank" rel="noopener">카카오채널 문의하기 ↗</a>
+      <a href="mailto:hrdxai@gmail.com">hrdxai@gmail.com ↗</a>
+    </div>
+  </div>
+</section>
+-->
+
+<section id="join" class="wrap">
+  <div class="section-head"><span class="bar"></span><h2>가입 방법 및 회원 특전</h2></div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="num mono">STEP 01</div>
+      <h4>신청서 제출</h4>
+      <p>아래 버튼으로 구글 폼을 작성해 제출합니다.</p>
+    </div>
+    <div class="step">
+      <div class="num mono">STEP 02</div>
+      <h4>학회 승인</h4>
+      <p>제출된 신청서를 학회에서 검토 후 승인 메일을 보내드립니다.</p>
+    </div>
+    <div class="step">
+      <div class="num mono">STEP 03</div>
+      <h4>회비 입금</h4>
+      <p>승인 메일 확인 후 안내된 계좌로 입금하면 가입이 완료됩니다.</p>
+    </div>
+  </div>
+
+  <div class="fee-grid">
+    <div class="fee-card">
+      <div class="label">가입비</div>
+      <div class="amount">50,000원</div>
+      <div class="label">최초 1회</div>
+    </div>
+    <div class="fee-card">
+      <div class="label">연회비</div>
+      <div class="amount">120,000원</div>
+      <div class="label">연 1회</div>
+    </div>
+    <div class="perk-card">
+      <div class="label mono">창립회원 특전</div>
+      <p>정기 프로그램 우선 참여 + 프로젝트 우선권 부여 + 마스터클래스 무료 참여 + 정회원 추천권</p>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:44px;">
+    <a class="btn-primary" href="#" id="apply-link" target="_blank" rel="noopener" style="font-size:18px;padding:18px 44px;">
+      창립회원 신청 폼 열기 →
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="final-cta">
+      <h2>지금, 창립회원으로<br>함께해 주세요</h2>
+      <p>일과 인공지능의 다음 10년을, 여러분의 전문성과 함께 만들어갑니다.</p>
+      <div class="qr-box">
+        <img src="https://quickchart.io/qr?text=https%3A%2F%2Fdocs.google.com%2Fforms%2Fd%2Fe%2F1FAIpQLSc8P-jX_XJVUyBp0OAZ4E6qfF17diJnRCDVzyqDLRLac0uyNw%2Fviewform%3Fusp%3Dsharing%26ouid%3D110696657151578504923&size=200&margin=1" alt="참가신청 QR 코드">
+      </div>
+      <div>
+        <a class="btn-primary" href="#" id="apply-link-2" target="_blank" rel="noopener">참가신청 QR / 폼 바로가기 →</a>
+      </div>
+    </div>
+
+    <div class="footer-grid">
+      <div>
+        <div class="footer-wais">WAIS</div>
+        <div class="footer-sub">WORK &amp; AI SOCIETY</div>
+      </div>
+      <div class="footer-col">
+        <h5>CONTACT</h5>
+        <a href="mailto:hrdxai@gmail.com">hrdxai@gmail.com</a>
+        <a href="tel:050-6525-2614">050-6525-2614 (운영사무국: 미래와교육연구소)</a>
+      </div>
+      <div class="footer-col">
+        <h5>CHANNEL</h5>
+        <a href="http://pf.kakao.com/_SxgxlwX" target="_blank" rel="noopener">카카오채널</a>
+        <a href="https://www.youtube.com/@HRDxAI" target="_blank" rel="noopener">공식 유튜브</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 WAIS — Work &amp; AI Society. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  var deadline = new Date("2026-07-17T23:59:59+09:00");
+  function updateDday(){
+    var now = new Date();
+    var diff = deadline - now;
+    var el = document.getElementById('dday');
+    if(diff <= 0){ el.textContent = "마감"; return; }
+    var days = Math.floor(diff / (1000*60*60*24));
+    var hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+    el.textContent = "D-" + days + " (" + hours + "시간)";
+  }
+  updateDday();
+  setInterval(updateDday, 60000);
+
+  var formURL = "https://docs.google.com/forms/d/e/1FAIpQLSc8P-jX_XJVUyBp0OAZ4E6qfF17diJnRCDVzyqDLRLac0uyNw/viewform?usp=sharing&ouid=110696657151578504923";
+  document.getElementById('apply-link').href = formURL;
+  document.getElementById('apply-link-2').href = formURL;
+</script>
+
+</body>
+</html>
