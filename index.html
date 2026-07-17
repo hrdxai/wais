@@ -632,6 +632,8 @@
   var formURL = "https://docs.google.com/forms/d/e/1FAIpQLSc8P-jX_XJVUyBp0OAZ4E6qfF17diJnRCDVzyqDLRLac0uyNw/viewform?usp=sharing&ouid=110696657151578504923";
   document.getElementById('apply-link').href = formURL;
   document.getElementById('apply-link-2').href = formURL;
+
+  document.addEventListener('contextmenu', function(e){ e.preventDefault(); });
 </script>
 
 </body>
