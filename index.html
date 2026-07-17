@@ -244,6 +244,28 @@
   .bodydouble-block .btn-primary{background:var(--ink);border-color:var(--ink);}
   .bodydouble-block .btn-primary:hover{background:#000;}
 
+  /* ---------- newsletter ---------- */
+  .newsletter-block{
+    background:linear-gradient(135deg, var(--cyan) 0%, #8FD4E8 100%);
+    color:var(--ink);border-radius:28px;margin:0 28px;padding:56px 44px;
+  }
+  @media(max-width:600px){ .newsletter-block{padding:40px 22px;margin:0 14px;} }
+  .newsletter-block .badge{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--ink);color:var(--white);font-weight:800;font-size:13px;
+    padding:8px 16px;border-radius:999px;margin-bottom:22px;font-family:'JetBrains Mono',monospace;
+  }
+  .newsletter-block h2{font-size:clamp(28px,4vw,40px);font-weight:800;margin:0 0 18px;letter-spacing:-0.01em;}
+  .newsletter-block p.desc{color:rgba(20,22,28,0.72);font-size:16px;max-width:600px;margin:0 0 36px;}
+  .newsletter-block .mc-card{
+    background:rgba(255,255,255,0.4);border:1px solid rgba(20,22,28,0.14);
+  }
+  .newsletter-block .nl-tags{display:flex;flex-wrap:wrap;gap:8px;}
+  .newsletter-block .tag{background:rgba(255,255,255,0.6);color:var(--ink);}
+  .newsletter-block .nl-fine{font-size:12.5px;color:rgba(20,22,28,0.6);margin-top:16px;}
+  .newsletter-block .btn-primary{background:var(--ink);border-color:var(--ink);}
+  .newsletter-block .btn-primary:hover{background:#000;}
+
   /* ---------- media ---------- */
   .media-row{display:grid;grid-template-columns:1.1fr 0.9fr;gap:22px;}
   @media(max-width:760px){ .media-row{grid-template-columns:1fr;} }
@@ -514,6 +536,26 @@
       </div>
       <span class="mc-only">창립회원 무료</span>
     </div>
+  </div>
+</section>
+
+<section id="newsletter">
+  <div class="newsletter-block">
+    <span class="badge">FREE WAIS NEWSLETTER</span>
+    <h2>일과 인공지능 뉴스레터, 놓치지 않고 받아보세요</h2>
+    <p class="desc">
+      일과 인공지능 관련 기술 및 연구 동향, 함께 읽으면 좋은 콘텐츠 큐레이션,
+      그리고 WAIS 정기 프로그램 소식까지 — 무료 뉴스레터로 정리해 드립니다.
+    </p>
+    <div class="mc-card">
+      <div class="nl-tags">
+        <span class="tag">기술 · 연구 동향</span>
+        <span class="tag">콘텐츠 큐레이션</span>
+        <span class="tag">정기 프로그램 소식</span>
+      </div>
+      <a class="btn-primary" href="https://page.stibee.com/subscriptions/505287" target="_blank" rel="noopener">무료 구독하기 →</a>
+    </div>
+    <p class="nl-fine">클릭하면 구독 신청 페이지로 이동합니다 · 언제든 구독을 취소할 수 있습니다.</p>
   </div>
 </section>
 
