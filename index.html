@@ -224,6 +224,26 @@
   .weekly-block .mc-label{color:var(--yellow);}
   .weekly-block .mc-only{color:var(--cyan);border-color:var(--cyan);}
 
+  /* ---------- body doubling ---------- */
+  .bodydouble-block{
+    background:linear-gradient(135deg, var(--yellow) 0%, #F5B84E 100%);
+    color:var(--ink);border-radius:28px;margin:0 28px;padding:56px 44px;
+  }
+  @media(max-width:600px){ .bodydouble-block{padding:40px 22px;margin:0 14px;} }
+  .bodydouble-block .badge{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--ink);color:var(--white);font-weight:800;font-size:13px;
+    padding:8px 16px;border-radius:999px;margin-bottom:22px;font-family:'JetBrains Mono',monospace;
+  }
+  .bodydouble-block h2{font-size:clamp(28px,4vw,40px);font-weight:800;margin:0 0 18px;letter-spacing:-0.01em;}
+  .bodydouble-block p.desc{color:rgba(20,22,28,0.72);font-size:16px;max-width:600px;margin:0 0 36px;}
+  .bodydouble-block .mc-card{
+    background:rgba(255,255,255,0.38);border:1px solid rgba(20,22,28,0.14);
+  }
+  .bodydouble-block .mc-card p{color:rgba(20,22,28,0.75);}
+  .bodydouble-block .btn-primary{background:var(--ink);border-color:var(--ink);}
+  .bodydouble-block .btn-primary:hover{background:#000;}
+
   /* ---------- media ---------- */
   .media-row{display:grid;grid-template-columns:1.1fr 0.9fr;gap:22px;}
   @media(max-width:760px){ .media-row{grid-template-columns:1fr;} }
@@ -313,8 +333,9 @@
     <a href="#" class="brand" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;"><img src="logo.png.png" alt="WAIS" class="brand-logo"></a>
     <div class="nav-links">
       <a href="#about">학회소개</a>
-      <a href="#weekly">스킬프로그램</a>
       <a href="#masterclass">마스터클래스</a>
+      <a href="#weekly">스킬프로그램</a>
+      <a href="#body-doubling">바디더블링</a>
       <a href="#join">가입안내</a>
     </div>
     <a class="cta-mini" href="#join">창립회원 신청</a>
@@ -472,6 +493,26 @@
         <p>처음 켜는 법부터 업무에 녹이는 법까지</p>
       </div>
       <span class="mc-only">전 회원 참여</span>
+    </div>
+  </div>
+</section>
+
+<section id="body-doubling">
+  <div class="bodydouble-block">
+    <span class="badge">WEEKLY · BODY DOUBLING</span>
+    <h2>WAIS 바디더블링 · 토요일 2시</h2>
+    <p class="desc">
+      혼자면 미루게 되는 일, 함께면 실천이 됩니다.
+    </p>
+    <div class="mc-card">
+      <div>
+        <p>매주 토요일 오후 2시, 정해진 공간에 모입니다. 논문을 쓰는 사람,
+        교육 프로그램을 만드는 사람, 핸즈온 프로젝트를 진행하는 사람 —
+        각자의 목표는 다르지만 같은 공간에서 함께 시간을 씁니다.
+        참여는 자율참여로, 원하는 날에 편하게 오시면 됩니다.</p>
+        <p class="mono" style="margin-top:14px;font-size:13px;">첫모임 2026년 7월 25일(토) 오후 2시 · 연세대학교 백양누리 스타벅스</p>
+      </div>
+      <a class="btn-primary" href="#join">토요일 2시, 함께하기 →</a>
     </div>
   </div>
 </section>
